@@ -3,6 +3,7 @@ package com.oneToMany;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,7 +14,8 @@ public class Department {
 	@Column(name="department_id")
 	private int departmentid;
 	private String departmentname;
-	@OneToOne(mappedBy="department")
+	
+	@ManyToOne
 	private Employee employee;
 	
 	public Employee getEmployee() {
@@ -22,6 +24,8 @@ public class Department {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+	
+	
 	public int getDepartmentid() {
 		return departmentid;
 	}
