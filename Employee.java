@@ -3,8 +3,10 @@ package com.oneToMany;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKey;
@@ -19,8 +21,11 @@ public class Employee {
 	@Column(name="employee_id")
 	private int employeeid;
 	private String employeename;
-	@OneToMany
+	
+	@OneToMany(mappedBy="employee",fetch=FetchType.EAGER)
 	private List<Department> department;
+	
+	
 	public int getEmployeeid() {
 		return employeeid;
 	}
